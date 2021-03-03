@@ -22,11 +22,14 @@ grad = zeros(size(theta));
 
 h = sigmoid(X * theta)
 
-J = ((- y') * log(h) - (1 - y)' * log(1 - h)) / m
+sum1 = ((- y') * log(h) - (1 - y)' * log(1 - h))
+sum2 = sum(theta(2:length(theta),:) .^ 2)
 
-grad = (X' * (h - y))/m
+J = ( sum1 / m) + (lambda / (2 * m)) * sum2
 
-
+non_reg_grad = (X' * (h - y)) / m
+grad(1,:) = non_reg_grad(1,:)
+grad(2:length(grad),:) = non_reg_grad(2:length(non_reg_grad),:) +
 
 
 
