@@ -20,7 +20,7 @@ W = zeros(L_out, 1 + L_in);
 %
 
 
-
+W = sqrt(6) / sqrt(L_out + (L_in + 1))
 
 
 
